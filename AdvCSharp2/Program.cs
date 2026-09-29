@@ -1,4 +1,6 @@
-﻿namespace AdvCSharp2
+﻿using System.Threading.Channels;
+
+namespace AdvCSharp2
 {
     internal class Program
     {
@@ -37,6 +39,15 @@
             List<Product> Under100 = ProductHelper.SearchProducts(catalog, x => x.Price < 100 && x.Category == "Clothing");
             Console.WriteLine("----Clothing Under $100----");
             ProductHelper.PrintList(Under100);
+            Console.WriteLine();
+            #endregion
+
+            #region Task 03 : Custom Report Generator  3.1 print Reports
+            Console.WriteLine("----Short Report----");
+            ProductReport.PrintReport(catalog, x => Console.WriteLine($"{x.Name} - $ {x.Price}"));
+            Console.WriteLine();
+            Console.WriteLine("----Long Report----");
+            ProductReport.PrintReport(catalog, x => Console.WriteLine($"[{x.Category}] {x.Name} | Price : ${x.Price} | Stock : {x.Stock}"));
             Console.WriteLine(); 
             #endregion
 
