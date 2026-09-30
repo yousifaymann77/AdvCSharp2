@@ -67,8 +67,16 @@ namespace AdvCSharp2
             {
                 Console.WriteLine(product);
             }
-            Console.WriteLine(); 
+            Console.WriteLine();
             #endregion
+
+
+            #region 3.3. Filter Products 
+            Console.WriteLine("----Low Stock Alert----");
+            List<Product> lowStock = ProductReport.FilterProducts(catalog, x => x.Stock < 50);
+            ProductHelper.LowStock(lowStock); 
+            #endregion
+
         }
     }
 }

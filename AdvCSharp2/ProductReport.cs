@@ -25,6 +25,22 @@ namespace AdvCSharp2
                 result.Add(transform(product));
             }
             return result;
+        }
+        #endregion
+
+
+        #region 3.3. Filter Products 
+        public static List<Product> FilterProducts(List<Product> products, Predicate<Product> filter)
+        {
+            List<Product> result = new List<Product>();
+            foreach (Product product in products)
+            {
+                if (filter(product))
+                {
+                    result.Add(product);
+                }
+            }
+            return result;
         } 
         #endregion
     }

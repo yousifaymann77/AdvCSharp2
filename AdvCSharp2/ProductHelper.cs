@@ -31,5 +31,13 @@ namespace AdvCSharp2
             }
         } 
         #endregion
+
+        public static void LowStock(List<Product> products)
+        {
+            foreach(Product p in products)
+            {
+                Console.WriteLine($"[LOW STOCK] {p.Name} : only {p.Stock} left");
+            }
+        }
     }
 }
