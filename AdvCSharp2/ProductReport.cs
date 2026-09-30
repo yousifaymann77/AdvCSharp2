@@ -13,6 +13,18 @@ namespace AdvCSharp2
             {
                 action(product);
             }
+        }
+        #endregion
+
+        #region 3.2. Transform Products 
+        public static List<string> TransformProducts(List<Product> products, Func<Product, string> transform)
+        {
+            List<string> result = new List<string>();
+            foreach (Product product in products)
+            {
+                result.Add(transform(product));
+            }
+            return result;
         } 
         #endregion
     }

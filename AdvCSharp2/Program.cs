@@ -48,9 +48,27 @@ namespace AdvCSharp2
             Console.WriteLine();
             Console.WriteLine("----Long Report----");
             ProductReport.PrintReport(catalog, x => Console.WriteLine($"[{x.Category}] {x.Name} | Price : ${x.Price} | Stock : {x.Stock}"));
-            Console.WriteLine(); 
+            Console.WriteLine();
             #endregion
 
+
+            #region 3.2. Transform Products 
+            Console.WriteLine("----Summary List----");
+            List<string> summary = ProductReport.TransformProducts(catalog, x => $"{x.Name} ({x.Price})");
+            foreach (string product in summary)
+            {
+                Console.WriteLine(product);
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("----Price Labels----");
+            List<string> priceLabels = ProductReport.TransformProducts(catalog, x => $"{x.Name} : {(x.Price > 100 ? "Expensive" : "Affordable")}");
+            foreach (string product in priceLabels)
+            {
+                Console.WriteLine(product);
+            }
+            Console.WriteLine(); 
+            #endregion
         }
     }
 }
